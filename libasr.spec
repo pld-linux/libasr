@@ -7,7 +7,6 @@ Group:		Libraries
 Source0:	https://www.opensmtpd.org/archives/%{name}-%{version}.tar.gz
 # Source0-md5:	ca46c5f24846598f9fd2322c265f5313
 URL:		https://github.com/OpenSMTPD/libasr
-BuildRequires:	libevent-devel
 BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
