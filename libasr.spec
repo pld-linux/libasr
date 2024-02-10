@@ -5,12 +5,12 @@
 Summary:	Free, simple and portable asynchronous resolver library
 Summary(pl.UTF-8):	Wolnodostępna, prosta i przenośna biblioteka asynchronicznego rozwiązywania nazw
 Name:		libasr
-Version:	1.0.2
+Version:	1.0.4
 Release:	1
 License:	ISC, BSD
 Group:		Libraries
 Source0:	https://www.opensmtpd.org/archives/%{name}-%{version}.tar.gz
-# Source0-md5:	2a2832e8c25683bd17f4ce8b37ba940a
+# Source0-md5:	ad76b488a19de962efd2e1c57e45a13a
 URL:		https://github.com/OpenSMTPD/libasr
 # <openssl/opensslv.h> used in openbsd-compat layer
 BuildRequires:	openssl-devel
@@ -82,8 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libasr.la
 
-# FIXME: somehow libtool installs this with -m 644 (ltmain.sh seems patched?)
-chmod a+x $RPM_BUILD_ROOT%{_libdir}/libasr.so.*
+# not installed as of 1.0.4
+install -d $RPM_BUILD_ROOT%{_mandir}/man3
+cp -p src/asr_run.3 $RPM_BUILD_ROOT%{_mandir}/man3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
